@@ -139,7 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="TestClass.cpp" />
+    <ClCompile Include="TestExecutive.cpp" />
     <ClCompile Include="Tested.cpp" />
   </ItemGroup>
   <ItemGroup>

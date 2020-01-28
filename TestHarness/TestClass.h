@@ -36,7 +36,7 @@ namespace Test {
     /*-- create instance holding unique_ptr to tested class --*/
     TestWidgetClass() : pWidget_(testedCode::createWidget()) {}
 
-    /*-- move required to use TestExecutive --*/
+    /*-- move required to use TestSequencer --*/
     TestWidgetClass(TestWidgetClass&& tc) noexcept {
       pWidget_ = std::move(tc.pWidget_);
     }

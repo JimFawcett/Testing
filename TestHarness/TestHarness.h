@@ -90,7 +90,7 @@ namespace Test {
   using FunctionTests = std::vector<std::pair<FP, std::string>>;
 
   template<typename T>
-  class TestExecutive {
+  class TestSequencer {
   public:
     /*-- register test class --*/
     void reg(T& t) {

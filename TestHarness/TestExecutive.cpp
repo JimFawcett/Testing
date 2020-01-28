@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////
-// TestWidgetClass.cpp - Demonstration Test Class                //
+// TestExecutive.cpp - Assembles tests and starts execution      //
 //                                                               //
 // Jim Fawcett, Teaching Professor Emeritus, ECE, Syracuse Univ  //
 ///////////////////////////////////////////////////////////////////
@@ -13,13 +13,13 @@ using namespace testedCode;
 using namespace Test;
 
 /*---------------------------------------------------------
-  TestExecutive will run this function
+  TestSequencer will run this function
 ---------------------------------------------------------*/
 
 /*---------------------------------------------------------
   Test Description:
-  - Demonstrate testing using test harness TestExecutive
-  - Can be run outside the TestExecutive
+  - Demonstrate testing using test harness TestSequencer
+  - Can be run outside the TestSequencer
   Test Environment:
   - All code built with C++17 option
   Test Operation:
@@ -112,10 +112,10 @@ int main() {
   executor.showResult(tb, "alwaysFails");
   putline(1);
 
-  title("Testing TestExecutive");
+  title("Testing TestSequencer");
 
   TestWidgetClass tc2;
-  TestExecutive<TestWidgetClass> te;
+  TestSequencer<TestWidgetClass> te;
   te.reg(tc2);
   te.reg(testTester, "testTester");
   te.reg(alwaysFails, "alwaysFails");
