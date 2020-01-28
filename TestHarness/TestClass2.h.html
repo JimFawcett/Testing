@@ -1,4 +1,4 @@
-#pragma once
+<pre>#pragma once
 ///////////////////////////////////////////////////////////////////
 // TestWidgetClass.h - Demonstration Test Class                  //
 //                                                               //
@@ -23,7 +23,7 @@
    ver 1.0 : 25 Jan 2020
    - first release
 */
-#include <memory>
+#include &lt;memory&gt;
 #include "ITest.h"
 #include "Tested.h"
 #include "TestHarness.h"
@@ -37,7 +37,7 @@ namespace Test {
     TestWidgetClass() : pWidget_(testedCode::createWidget()) {}
 
     /*-- move required to use TestSequencer --*/
-    TestWidgetClass(TestWidgetClass&& tc) noexcept {
+    TestWidgetClass(TestWidgetClass&amp;&amp; tc) noexcept {
       pWidget_ = std::move(tc.pWidget_);
     }
     /*---------------------------------------------
@@ -56,13 +56,13 @@ namespace Test {
     }
   private:
     /*-- required to reference code to test --*/
-    std::unique_ptr<testedCode::IWidget> pWidget_;
+    std::unique_ptr&lt;testedCode::IWidget&gt; pWidget_;
 
     /*------------------------------------------------------
       required to execute tests : template parameter is
       test class name
     */
-    Executor<TestWidgetClass> executor_;
+    Executor&lt;TestWidgetClass&gt; executor_;
   };
 
   /*---------------------------------------------------------
@@ -75,31 +75,31 @@ namespace Test {
     - run each of the implementing tests: test1 to test4
   */
   bool TestWidgetClass::test() {
-    std::cout << "\n  Testing " << name();
-    bool t1 = executor_.doTest(&TestWidgetClass::test1, this);
+    std::cout &lt;&lt; "\n  Testing " &lt;&lt; name();
+    bool t1 = executor_.doTest(&amp;TestWidgetClass::test1, this);
     executor_.showResult(t1, "test1");
-    bool t2 = executor_.doTest(&TestWidgetClass::test2, this);
+    bool t2 = executor_.doTest(&amp;TestWidgetClass::test2, this);
     executor_.showResult(t2, "test2");
-    bool t3 = executor_.doTest(&TestWidgetClass::test3, this);
+    bool t3 = executor_.doTest(&amp;TestWidgetClass::test3, this);
     executor_.showResult(t3, "test3");
-    bool t4 = executor_.doTest(&TestWidgetClass::test4, this);
+    bool t4 = executor_.doTest(&amp;TestWidgetClass::test4, this);
     executor_.showResult(t4, "test4");
-    return t1 && t2 && t3 && t4;
+    return t1 &amp;&amp; t2 &amp;&amp; t3 &amp;&amp; t4;
   }
   /*-- Requirement #1 Widget Class --*/
   /*-- Widget is initialized with name = "unknown --*/
   bool TestWidgetClass::test1() {
-    return (pWidget_->name() == "unknown");
+    return (pWidget_-&gt;name() == "unknown");
   }
 
   /*---------------------------------------------------------
      Requirement #2 Widget Class
-     - Widget::name(const std::string&) sets name_ member
+     - Widget::name(const std::string&amp;) sets name_ member
      - Widget::name() returns value of name_ member
   */
   bool TestWidgetClass::test2() {
-    pWidget_->name("testItem");
-    return (pWidget_->name() == "testItem");
+    pWidget_-&gt;name("testItem");
+    return (pWidget_-&gt;name() == "testItem");
   }
 
   /*---------------------------------------------------------
@@ -109,7 +109,7 @@ namespace Test {
      - Requires test2() to run immediately before this test
   */
   bool TestWidgetClass::test3() {
-    std::string temp = pWidget_->say();
+    std::string temp = pWidget_-&gt;say();
     return temp == "hi from Widget instance testItem";
   }
 
@@ -123,4 +123,4 @@ namespace Test {
     throw(std::exception());
     return true;
   }
-}
+}</pre>
